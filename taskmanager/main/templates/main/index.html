@@ -1,0 +1,53 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+
+{% block title %}
+TuskHub
+{% endblock %}
+
+{% block content %}
+    <div class="intro">
+        <div class="introText"></div>
+            <h2 class="introTextH">Организуйте свой день <br> и свои проекты</h2>
+            <p class="introTextP">Ваши задачи и проекты в одном удобном месте</p>
+        </div>
+        <div class="introImg">
+            <img src="{% static "main/img/introImg.png" %}" width="600px" height="600px" alt="intro">
+        </div>
+    </div>
+
+
+
+    <div class="introT">
+        <hr class="hr1">
+        <div class="IntroTimg">
+            <img src="{% static "main/img/2.jpg" %}" width="600px" height="600px" alt="intro2"">
+        </div>
+        <div class="IntroTextT">
+            <h2 class="t">Распределяйте задачи <br> по проекту <br> и их приоритетности</h2>
+            <br>
+            <p class="p">Повысьте свою эффективность за счет выполнения задач по приоритету</p>
+        </div>
+
+    </div>
+
+    <div class="Intro">
+        <hr class="hr2">
+        <div style="width: 100%">
+            <h2 class="prod">«Каждая минута, затраченная на планирование, <br>экономит 10 минут при осуществлении плана»</h2>
+            <br>
+            <p class="prod1">Брайан Трейси</p>
+            <a style="width: 500px; height: 60px;" class="btn btn-primary reg1" href="{% url 'reg' %}">Начать планировать</a>
+            <hr class="hr3">
+        </div>
+
+
+
+    </div>
+
+{% endblock %}
+
+
+
+

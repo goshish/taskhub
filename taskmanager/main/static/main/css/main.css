@@ -1,0 +1,312 @@
+* {
+    margin: 0;
+    padding: 0;
+    margin-top: 0;
+}
+
+header {
+    position: fixed;
+    height: 95px;
+    width: 3000px;
+    margin-left: -500px;
+    background: #ffffff;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.06);
+    header: fixed;
+    z-index: 9999;
+}
+
+header a {
+    text-decoration: none;
+    position: relative;
+    color: #2b2a2a;
+    margin-top: 19px;
+    font-size: 1.4em;
+    bottom: -2px;
+}
+
+header a:hover {
+    color: black;
+    font-weight: bold;
+}
+
+.reg:hover {
+    text-decoration: none;
+}
+
+.firstLink {
+    position: relative;
+    right: -600px;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+.firstLink:hover {
+    border-bottom: 1px solid blue;
+    border-bottom-width: 4px;
+    margin-bottom: 6px;
+}
+
+.secondLink {
+    position: relative;
+    right: -460px;
+
+}
+
+.secondLink:hover {
+    border-bottom: solid blue;
+    border-bottom-width: 4px;
+    margin-bottom: 6px;
+}
+
+
+.reg{
+    position: relative;
+    font-size: 1.3em;
+    right: -200px;
+    bottom: -4px;
+    height: 50px;
+    width: 110px;
+    padding-top: 7px;
+}
+
+.log {
+    position: relative;
+    right: -330px;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+.log:hover {
+    border-bottom: solid blue;
+    border-bottom-width: 4px;
+    margin-bottom: 6px;
+}
+
+.logo {
+    text-decoration: none;
+    position: relative;
+    left: -240px;
+    top: -13px
+}
+
+main .introTextH {
+    text-decoration: none;
+    position: absolute;
+    font-size: 80px;
+    margin-left: 120px;
+    top: 300px;
+}
+
+main .introTextP {
+    text-decoration: none;
+    position: absolute;
+    font-size: 30px;
+    margin-left: 120px;
+    margin-top: 550px;
+}
+
+main .introImg {
+    position: absolute;
+    margin-left: 1150px;
+    bottom: 150px;
+}
+
+
+
+.introT {
+    position: absolute;
+    bottom: 0;
+}
+
+.IntroTimg {
+    position: relative;
+    top: 400px;
+    left: 250px;
+}
+
+.IntroTextT {
+    position: relative;
+    padding-left: 1050px;
+    padding-bottom: 0px;
+    margin-bottom: -700px;
+    bottom: 100px;
+}
+
+.hr1 {
+    position: absolute;
+    top: 300px;
+    width: 100vw;
+    margin-left: calc(85% - 54vw);
+    height: 2px;
+    box-shadow: 0 3px 5px #999;
+    right: -448px;
+}
+
+.t {
+   font-size: 50px;
+}
+
+.p {
+    position: absolute;
+    font-size: 25px;
+}
+
+.hr2 {
+    position: absolute;
+    top: 1900px;
+    width: 100vw;
+    margin-left: calc(85% - 54vw);
+    height: 2px;
+    box-shadow: 0 3px 5px #999;
+    right: 0px;
+}
+
+.Intro{
+    width: 100%;
+}
+
+.prod {
+    position: relative;
+    top: 2100px;
+    margin-left: 600px;
+}
+
+.prod1 {
+    position: relative;
+    top: 2100px;
+    margin-left: 1200px;
+    font-size: 20px;
+}
+
+.reg1 {
+    position: relative;
+    top: 2160px;
+    margin-left: 700px;
+    font-size: 40px;
+    padding-top: 0;
+}
+
+.hr3 {
+    position: absolute;
+    top: 2550px;
+    width: 100vw;
+    margin-left: calc(85% - 54vw);
+    height: 3px;
+    box-shadow: 0 3px 5px #999;
+    right: 0px;
+}
+
+
+footer {
+    position: absolute;
+    background-color: #d9dbde;
+    margin-top: 2350px;
+}
+
+.fut {
+    color: #0050ff;
+    position: relative;
+    text-decoration: none;
+    margin-top: 60px;
+    margin-left: 200px;
+    font-size: 20px;
+    line-height: 35px;
+    color: black;
+}
+
+.hea {
+    font-weight: bold;
+}
+
+.f1:hover, .f2:hover, .f3:hover{
+    text-decoration: underline;
+}
+
+
+
+.ficon {
+    position: relative;
+    margin-top: -160px;
+    margin-left: 1200px;
+    line-height: 5px;
+}
+
+.ficont{
+    position:relative;
+    margin-top: -158px;
+    margin-left: 635px;
+    font-size: 25px;
+}
+
+.fi1:hover, .fi2:hover, .fi3:hover {
+    color: blue;
+}
+
+.t1:hover, .t2:hover {
+    text-decoration: underline;
+    color: blue;
+}
+
+
+.t2 {
+    position:absolute;
+    margin-top: -2px;
+    margin-left: 635px;
+    font-size: 25px;
+}
+
+.t3 {
+    position:absolute;
+    margin-top: 48px;
+    margin-left: 635px;
+    font-size: 25px;
+}
+
+.blockf {
+    position: relative;
+    padding-left: 108px;
+    padding-top: 350px;
+}
+
+.blockf h1 {
+    font-size: 80px;
+}
+
+.blockf p {
+    position: relative;
+    font-size: 30px;
+}
+
+.blockfimg {
+   position: relative;
+   padding-left: 990px;
+   bottom: 550px;
+}
+
+
+.blockf1 {
+    position: relative;
+    padding-top: 300px;
+    padding-left: 108px;
+}
+
+.blockf1 h1{
+    font-size: 80px;
+}
+
+.blockf1 p{
+    font-size: 30px;
+}
+
+.blockf1 li:hover {
+    transform: scale(1.01);
+    color: blue;
+}
+
+.log_in_form{
+    position: relative;
+    top: 300px;
+}
+
+
+
