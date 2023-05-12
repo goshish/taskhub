@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
 
-def taskind(request):
-    return render(request, 'webapp/taskind.html')
+menu = ["Мой день", "Все", "Мои списки"]
+def tasks(request):
+    return render(request, 'webapp/tasks.html', {'menu': menu, 'title': 'Задачи'})
