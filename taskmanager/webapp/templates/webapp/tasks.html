@@ -1,8 +1,16 @@
 {% extends 'webapp/tasklayout.html' %}
 
-{% block title %}Задачи{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block content %}
 <h1>{{title}}</h1>
-<p>Содержание главной страницы</p>
+<ul>
+   {% for t in tasks %}
+    <li>
+        <h2>{{ t.title }}</h2>
+        <p>{{ t.content }}</p>
+        <hr>
+    </li>
+    {% endfor %}
+</ul>
 {% endblock %}
