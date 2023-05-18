@@ -1,0 +1,12 @@
+{% extends 'webapp/tasklayout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+    {% for t in tasks %}
+    <h1>{{ t.title }}</h1>
+    {% endfor %}
+
+{% endblock content %}
+

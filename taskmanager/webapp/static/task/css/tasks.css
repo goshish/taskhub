@@ -1,0 +1,56 @@
+body {
+    overflow: hidden
+}
+
+.menu {
+    width: 20%;
+    min-height: 100vh;
+    padding: 10px;
+    border: 1px solid #c1c5c9;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+    font-size: 30px;
+    padding: 8px 16px;
+}
+
+.menu li:last-child {
+  border-bottom: none;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.menu li a:hover {
+  color: #000;
+  font-weight: bold;
+}
+
+.tasks {
+    width: 80vh;
+    min-height: 100vh;
+    margin-left: 399px;
+    margin-top: -180px;
+}
+
+.tasks ul {
+    margin-left:
+}
+
+.content {
+    position: absolute;
+    width: 70vh;
+    min-height: 100vh;
+    border: 1px solid #c1c5c9;
+
+    bottom: 0px;
+    right: 0px;
+}

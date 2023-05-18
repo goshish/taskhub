@@ -8,19 +8,27 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'task/CSS/tasks.css' %}">
+    <link rel="stylesheet" href="{% static 'task/css/tasks.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 </head>
 <body>
-    {% block menu %}
-        <ul class="menu">
+{% block menu %}
+    <div class="menu">
+        <ul>
             {% for m in menu %}
-            <li class="menu_list">{{m}}</li>
+            <li><a href="{% url m.url_name %}">{{m.title}}</a></li>
             {% endfor %}
         </ul>
-    {% endblock %}
+{% endblock menu %}
 
-    {% block content %}
-    {% endblock %}
+{% block tasks %}
+{% endblock tasks %}
+
+<div class="content">
+{% block content %}
+
+{% endblock content %}
+</div>
+
 </body>
 </html>
