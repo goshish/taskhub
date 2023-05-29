@@ -2,11 +2,28 @@
 
 {% block title %}{{ title }}{% endblock %}
 
+{% block tasks %}
+<div class="tasks">
+    <h1>{{title}}</h1>
+    <hr style="min-width: 98vh;">
+    <ul>
+       {% for t in tasks %}
+        <li>
+            <!--    Ссылка на pk в моделях        -->
+            <h2><a href="{{ t.get_absolute_url }}">{{ t.title }}</a></h2>
+            <p>{{ t.priority }}</p>
+        </li>
+        <hr style="min-width: 98vh;">
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock tasks %}
+
 {% block content %}
 
     {% for t in tasks %}
-    <h1>{{ t.title }}</h1>
+        <h1>{{ t.content }}</h1>
     {% endfor %}
 
 {% endblock content %}
-

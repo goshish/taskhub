@@ -1,3 +1,28 @@
 {% extends 'webapp/tasklayout.html' %}
 
+{% block title %}{{ title }}{% endblock %}
+
+{% block tasks %}
+<div class="tasks">
+    <h1>{{title}}</h1>
+    <hr style="min-width: 98vh;">
+    <ul>
+       {% for t in tasks %}
+        <li>
+            <!--    Ссылка на pk в моделях        -->
+            <a href="{{ t.get_absolute_url }}"><h2>{{ t.title }}</h2></a>
+            <p>{{ t.priority }}</p>
+        </li>
+        <hr style="min-width: 98vh;">
+        {% endfor %}
+    </ul>
+</div>
+{% endblock tasks %}
+
+{% block content %}
+    {% for t in content %}
+            <h1>{{ t.content }}</h1>
+    {% endfor %}
+{% endblock content %}
+
 

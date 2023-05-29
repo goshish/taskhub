@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import *
 
-
+# создаем словарь к которому будем обращаться в будущем. Обращаясь к url_name : my_day мы говорим программе чтобы использовала преддставление которое называется my_day
 menu = [{'title': "Мой день", 'url_name': 'my_day'},
         {'title': "Все", 'url_name': 'tasks'},
         {'title': "Мои списки", 'url_name': 'list'}
@@ -17,6 +17,7 @@ def tasks(request):
 
 
 def my_day(request):
+    tasks = Task.objects.filter(my_day='my_day')
     context = {
         'tasks': tasks,
         'menu': menu,
@@ -35,9 +36,11 @@ def list(request):
 
 
 def content(request, task_id):
+    tasks = Task.objects.filter(id=task_id)
     context = {
         'tasks': tasks,
         'menu': menu,
-        'title': 'Задачи'
+        'title': 'Задачи',
+
     }
     return render(request, 'webapp/content.html', context=context)
