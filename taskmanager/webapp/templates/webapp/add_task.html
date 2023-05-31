@@ -1,0 +1,37 @@
+{% extends 'webapp/tasklayout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block tasks %}
+<div class="tasks">
+    <h1>{{title}}</h1>
+    <hr style="min-width: 98vh;">
+    <ul>
+       {% for t in tasks %}
+        <li>
+            <!--    Ссылка на pk в моделях        -->
+            <a href="{{ t.get_absolute_url }}"><h2>{{ t.title }}</h2></a>
+            <p>{{ t.priority }}</p>
+        </li>
+        <hr style="min-width: 98vh;">
+        {% endfor %}
+    </ul>
+</div>
+{% endblock tasks %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+<form action="{% url 'add_task' %}" method="post">
+    {% csrf_token %}
+
+    <div class="form-error">{{ form.non_field_errors }}</div>
+<!--  Позволяет отображать все поля функции с использованием тега <p>  -->
+    <p><label class="form label" for="{{ form.title.id_for_label }}"><br>{{ form.title.label }}: </label><br><br>{{ form.title }}</p>
+    <p><label class="form label" for="{{ form.content.id_for_label }}"><br>{{ form.content.label }}: </label><br><br>{{ form.content }}</p>
+    <p><label class="form label" for="{{ form.priority.id_for_label }}"><br>{{ form.priority.label }}: </label>     {{ form.priority }}</p>
+    <p><label class="form label" for="{{ form.my_day.id_for_label }}">{{ form.my_day.label }}:</label>      {{ form.my_day }}</p>
+    <p><label class="form label" for="{{ form.due_date.id_for_label }}">{{ form.due_date.label }}: </label><br><br>{{ form.due_date }}</p>
+    <button type="submit">Добавить</button>
+</form>
+{% endblock content %}

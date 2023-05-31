@@ -7,5 +7,6 @@ urlpatterns = [
     path('/my_day', views.my_day, name='my_day'),
     path('/list', views.list, name='list'),
     # Для того чтобы переходить в конкретную запись из БД используя шаблонизатор
-    path('/task/<int:task_id>/', views.content, name='content')
+    path('/task/<int:task_id>/', views.content, name='content'),
+    path('/add_task', views.add_task, name='add_task')
 ]

@@ -17,13 +17,14 @@
         {% endfor %}
     </ul>
 </div>
-
 {% endblock tasks %}
 
 {% block content %}
 
     {% for t in tasks %}
-        <h1>{{ t.content }}</h1>
+        <h1>{{ t.title }}</h1>
+        <p class="task-info">{{ t.content }}</p>
+        <p class="task-info">{{ t.priority }}</p>
+        <p class="task-info">{{ t.due_date }}</p>
     {% endfor %}
-
 {% endblock content %}

@@ -1,5 +1,5 @@
 body {
-    overflow: hidden
+
 }
 
 .menu {
@@ -54,11 +54,10 @@ body {
     right: 0px;
 }
 
-.menu_ogj{
-
+.add_task {
+    position: absolute;
 }
 
-.menu_obj::after{
-    text-decoration: underline;
-    color: blue;
+.task-info {
+    font-size: 30px;
 }
