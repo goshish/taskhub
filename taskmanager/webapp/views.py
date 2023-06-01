@@ -53,11 +53,8 @@ def add_task(request):
     if request.method == 'POST':
         form = AddTaskForm(request.POST)
         if form.is_valid():
-            try:
-                Task.objects.create(**form.cleaned_data)
+                form.save()
                 return redirect('tasks')
-            except:
-                form.add_error(None, 'Некоректные данные')
     else:
         form = AddTaskForm()
     form = AddTaskForm()

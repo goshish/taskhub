@@ -25,13 +25,11 @@
 <form action="{% url 'add_task' %}" method="post">
     {% csrf_token %}
 
-    <div class="form-error">{{ form.non_field_errors }}</div>
-<!--  Позволяет отображать все поля функции с использованием тега <p>  -->
-    <p><label class="form label" for="{{ form.title.id_for_label }}"><br>{{ form.title.label }}: </label><br><br>{{ form.title }}</p>
-    <p><label class="form label" for="{{ form.content.id_for_label }}"><br>{{ form.content.label }}: </label><br><br>{{ form.content }}</p>
-    <p><label class="form label" for="{{ form.priority.id_for_label }}"><br>{{ form.priority.label }}: </label>     {{ form.priority }}</p>
-    <p><label class="form label" for="{{ form.my_day.id_for_label }}">{{ form.my_day.label }}:</label>      {{ form.my_day }}</p>
-    <p><label class="form label" for="{{ form.due_date.id_for_label }}">{{ form.due_date.label }}: </label><br><br>{{ form.due_date }}</p>
+<!--  Позволяет отображать все поля формы с использованием тега <p>  -->
+    {% for f in form %}
+        <p><label class="form label" for="{{ form.id_for_label }}"><br>{{ f.label }}: </label><br>{{ f }}</p>
+        <div class="form-error">{{ f.errors }}</div>
+    {% endfor %}
     <button type="submit">Добавить</button>
 </form>
 {% endblock content %}

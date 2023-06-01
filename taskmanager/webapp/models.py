@@ -4,19 +4,16 @@ from django.urls import reverse
 
 
 class Task(models.Model):
-    title = models.CharField(max_length=255)
-    content = models.TextField(blank=True)
+    title = models.CharField(max_length=255, verbose_name='Заголовок')
+    content = models.TextField(blank=True, verbose_name='Описание')
     priority_choices = [
         ('low', 'Низкий'),
         ('medium', 'Средний'),
         ('high', 'Высокий')
     ]
-    priority = models.CharField(max_length=10, choices=priority_choices)
-    due_date = models.DateTimeField()
-    my_day_list = [
-        ('my_day', 'Мой день')
-    ]
-    my_day = models.CharField(max_length=10, choices=my_day_list, blank=True)
+    priority = models.CharField(max_length=10, choices=priority_choices, verbose_name='Приоритет')
+    due_date = models.DateTimeField(verbose_name='Срок выполнения')
+    my_day = models.BooleanField(max_length=10, blank=True, verbose_name='Мой день')
 
     class Meta:
         verbose_name = 'Задачи'
