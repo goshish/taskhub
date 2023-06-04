@@ -12,6 +12,7 @@
             <!--    Ссылка на pk в моделях        -->
             <a href="{{ t.get_absolute_url }}"><h2>{{ t.title }}</h2></a>
             <p>{{ t.priority }}</p>
+            <p>{{ t.my_day }}</p>
         </li>
         <hr style="min-width: 98vh;">
         {% endfor %}
@@ -20,7 +21,7 @@
 {% endblock tasks %}
 
 {% block content %}
-<h1>{{ title }}</h1>
+<h1>Добавить задачу</h1>
 
 <form action="{% url 'add_task' %}" method="post">
     {% csrf_token %}
