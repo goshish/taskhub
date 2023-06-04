@@ -1,8 +1,11 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView
 
 from .forms import *
 from .models import *
+from .utils import *
 
 # создаем словарь к которому будем обращаться в будущем. Обращаясь к url_name : my_day мы говорим программе чтобы использовала преддставление которое называется my_day
 menu = [{'title': "Мой день", 'url_name': 'my_day'},
@@ -11,10 +14,12 @@ menu = [{'title': "Мой день", 'url_name': 'my_day'},
         {'title': "Добавить задачу", 'url_name': 'add_task'}
 ]
 
-class TaskHome(ListView):
+class TaskHome(LoginRequiredMixin ,ListView):
+    paginate_by = 4
     model = Task
     template_name = 'webapp/tasks.html'
     context_object_name = 'tasks'
+    login_url = reverse_lazy('log_in')
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -24,6 +29,7 @@ class TaskHome(ListView):
 
 
 class MyDay(ListView):
+    paginate_by = 4
     model = Task
     template_name = 'webapp/my_day.html'
     context_object_name = 'tasks'
@@ -47,7 +53,6 @@ def list(request):
     return render(request, 'webapp/list.html', context=context)
 
 
-# DetailView
 
 class Content(ListView):
     model = Task
@@ -63,19 +68,10 @@ class Content(ListView):
         context['menu'] = menu
         context['title'] = 'Задачи'
         return context
-# def content(request, task_id):
-#     tasks = Task.objects.filter(id=task_id)
-#     context = {
-#         'tasks': tasks,
-#         'menu': menu,
-#         'title': 'Задачи',
-#
-#     }
-#     return render(request, 'webapp/content.html', context=context)
 
-# CreateView
 
 class Add_task(CreateView, ListView):
+    paginate_by = 4
     model = Task
     form_class = AddTaskForm
     template_name = 'webapp/add_task.html'
@@ -89,20 +85,4 @@ class Add_task(CreateView, ListView):
 
 
 
-# def add_task(request):
-#     if request.method == 'POST':
-#         form = AddTaskForm(request.POST)
-#         if form.is_valid():
-#                 form.save()
-#                 return redirect('tasks')
-#     else:
-#         form = AddTaskForm()
-#     form = AddTaskForm()
-#     tasks = Task.objects.all()
-#     context = {
-#         'tasks': tasks,
-#         'menu': menu,
-#         'title': 'Add task',
-#         'form': form,
-#     }
-#     return render(request, 'webapp/add_task.html', context=context)
+
