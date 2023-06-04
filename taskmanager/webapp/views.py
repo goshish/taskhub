@@ -15,7 +15,7 @@ menu = [{'title': "Мой день", 'url_name': 'my_day'},
 ]
 
 class TaskHome(LoginRequiredMixin ,ListView):
-    paginate_by = 4
+    paginate_by = 3
     model = Task
     template_name = 'webapp/tasks.html'
     context_object_name = 'tasks'
@@ -44,6 +44,7 @@ class MyDay(ListView):
 
 
 def list(request):
+    paginate_by = 4
     tasks = Task.objects.all()
     context = {
         'tasks': tasks,

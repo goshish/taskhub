@@ -30,12 +30,14 @@
 {% block content %}
 {% endblock content %}
 </div>
+{% if page_obj.has_other_pages %}
 <nav class="list-pages">
     <ul>
         {% for p in paginator.page_range %}
         {% if page_obj.number == p %}
         <li>{{ p }}</li>
-        {% else %}
+<!--   Чтобы при наличии большого количества страниц меню пагинации содержало в себе текущий номер страницы и по 2 с каждой стороны     -->
+        {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
         <li class="page-num">
             <a href="?page={{ p }}">{{ p }}</a>
         </li>
@@ -43,6 +45,7 @@
         {% endfor %}
     </ul>
 </nav>
+{% endif %}
 
 </body>
 </html>
