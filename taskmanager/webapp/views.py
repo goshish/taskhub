@@ -28,6 +28,12 @@ class TaskHome(LoginRequiredMixin ,ListView):
         context['title'] = 'Задачи'
         return context
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        # Сортировка по полю due_time
+        queryset = queryset.order_by('-due_date')
+        return queryset
+
 
 class TaskDeleteView(TaskHome):
     http_method_names = ['post']
