@@ -13,6 +13,10 @@
             <a href="{{ t.get_absolute_url }}"><h2>{{ t.title }}</h2></a>
             <p>{{ t.priority }}</p>
             <p>{{ t.my_day }}</p>
+            <form action="{% url 'delete_task' t.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
         </li>
         <hr style="min-width: 98vh;">
         {% endfor %}

@@ -1,5 +1,6 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView
 
@@ -26,6 +27,16 @@ class TaskHome(LoginRequiredMixin ,ListView):
         context['menu'] = menu
         context['title'] = 'Задачи'
         return context
+
+
+class TaskDeleteView(TaskHome):
+    http_method_names = ['post']
+
+    def post(self, request, task_id):  # Используйте метод post вместо delete
+        task = Task.objects.get(pk=task_id)
+        task.delete()
+        return redirect('tasks')
+
 
 
 class MyDay(ListView):
@@ -83,7 +94,6 @@ class Add_task(CreateView, ListView):
         context['menu'] = menu
         context['title'] = 'Задачи'
         return context
-
 
 
 
