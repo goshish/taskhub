@@ -37,7 +37,7 @@ body {
 .tasks {
     width: 80vh;
     min-height: 100vh;
-    margin-left: 399px;
+    margin-left: 200px;
     margin-top: -180px;
 }
 
@@ -64,4 +64,10 @@ body {
 
 .form-input {
     width: 600px;
+}
+
+.project_detail {
+    position: absolute;
+    top: 20px;
+    left: 400px;
 }

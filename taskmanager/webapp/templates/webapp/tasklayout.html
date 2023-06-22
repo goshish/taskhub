@@ -13,7 +13,7 @@
 </head>
 <body>
 {% block menu %}
-    <div class="menu">
+<div class="menu">
         <ul>
             {% for m in menu %}
 <!--   обращаемся к методу в моделях          -->
@@ -21,11 +21,13 @@
             {% endfor %}
 
         </ul>
-
 {% endblock menu %}
 
+
+<div class="tasks">
 {% block tasks %}
 {% endblock tasks %}
+</div>
 
 <div class="content">
 {% block content %}

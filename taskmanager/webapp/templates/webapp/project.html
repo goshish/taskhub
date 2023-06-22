@@ -1,0 +1,34 @@
+{% extends 'webapp/tasklayout.html' %}
+
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block tasks %}
+<div class="tasks">
+    <h1>{{title}}</h1>
+    <hr style="min-width: 98vh;">
+    <ul>
+       {% for p in project %}
+        <li>
+            <a href="{% url 'project_detail' p.id %}"><h2>{{ p.title }}</h2></a>
+
+        </li>
+        <hr style="min-width: 98vh;">
+        {% endfor %}
+    </ul>
+</div>
+{% endblock tasks %}
+
+{% block content %}
+<h1>Добавить проект</h1>
+
+<form action="{% url 'list' %}" method="post">
+    {% csrf_token %}
+<!--  Позволяет отображать все поля формы с использованием тега <p>  -->
+    {% for p in form %}
+        <p><label class="form label" for="{{ form.id_for_label }}"><br>{{ p.label }}: </label><br>{{ p }}</p>
+        <div class="form-error">{{ f.errors }}</div>
+    {% endfor %}
+    <button type="submit">Добавить</button>
+</form>
+{% endblock content %}

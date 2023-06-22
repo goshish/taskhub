@@ -1,0 +1,30 @@
+{% extends 'webapp/tasklayout.html' %}
+
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block menu %}
+    {{ block.super }}
+{% endblock menu %}
+
+
+{% block tasks %}
+<div class="project_detail">
+    <h1>{{ p.title }}</h1>
+    <hr style="min-width: 98vh;">
+    <ul>
+        {% for t in tasks %}
+        <li>
+            <h2>{{ t.title }}</h2>
+            <p>{{ t.content }}</p>
+            <!-- Остальные поля задачи -->
+        </li>
+        <hr style="min-width: 98vh;">
+        {% endfor %}
+    </ul>
+</div>
+{% endblock tasks %}
+
+
+{% block content %}
+{% endblock content %}

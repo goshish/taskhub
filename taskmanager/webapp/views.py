@@ -30,10 +30,11 @@ class TaskHome(LoginRequiredMixin ,ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
+        # Фильтрация по текущему пользователю
+        queryset = queryset.filter(user=self.request.user)
         # Сортировка по полю due_time
         queryset = queryset.order_by('-due_date')
         return queryset
-
 
 class TaskDeleteView(TaskHome):
     http_method_names = ['post']
@@ -60,16 +61,34 @@ class MyDay(ListView):
         return context
 
 
-def list(request):
+class ProjectView(CreateView, ListView):
     paginate_by = 4
-    tasks = Task.objects.all()
-    context = {
-        'tasks': tasks,
-        'menu': menu,
-        'title': 'My lists'
-    }
-    return render(request, 'webapp/list.html', context=context)
+    model = Project
+    form_class = AddProjectForm
+    template_name = 'webapp/project.html'
+    context_object_name = 'project'
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['menu'] = menu
+        context['title'] = 'Задачи'
+        return context
 
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user  # Привязка задачи к текущему пользователю
+        return super().form_valid(form)
+
+class ProjectDetailView(ListView):
+    model = Project
+    template_name = 'webapp/project_detail.html'
+    context_object_name = 'project_object'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        project_id = self.kwargs['pk']
+        tasks = Task.objects.filter(project_id=project_id)
+        context['tasks'] = tasks
+        return context
 
 
 class Content(ListView):
@@ -100,6 +119,10 @@ class Add_task(CreateView, ListView):
         context['menu'] = menu
         context['title'] = 'Задачи'
         return context
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 
