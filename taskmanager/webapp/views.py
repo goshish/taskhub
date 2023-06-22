@@ -72,6 +72,11 @@ class ProjectView(CreateView, ListView):
         context['menu'] = menu
         context['title'] = 'Задачи'
         return context
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        # Фильтрация по текущему пользователю
+        queryset = queryset.filter(user=self.request.user)
+        return queryset
 
 
     def form_valid(self, form):
@@ -89,6 +94,12 @@ class ProjectDetailView(ListView):
         tasks = Task.objects.filter(project_id=project_id)
         context['tasks'] = tasks
         return context
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        # Фильтрация по текущему пользователю
+        queryset = queryset.filter(user=self.request.user)
+        return queryset
 
 
 class Content(ListView):

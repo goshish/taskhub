@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 
 class Project(models.Model):
     title = models.CharField(max_length=255, verbose_name='Название проекта')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
 
     def __str__(self):
         return self.title
@@ -25,7 +26,7 @@ class Task(models.Model):
     priority = models.CharField(max_length=10, choices=priority_choices, verbose_name='Приоритет')
     due_date = models.DateTimeField(verbose_name='Срок выполнения')
     my_day = models.BooleanField(max_length=10, blank=True, verbose_name='Мой день')
-    project = models.ForeignKey('Project', on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Проект')
+    project = models.ForeignKey('Project', on_delete=models.CASCADE, null=True, blank=True, verbose_name='Проект')
 
     class Meta:
         verbose_name = 'Задачи'
