@@ -10,7 +10,7 @@ Open and use http://localhost:8000 to start using the Task Manager.
 
 
 Usage
-
+To display the page correctly, set the page scale to 75%
 Create an account or log in to your existing account.
 Create new furniture, specifying its name, description and due date.
 Assign the status of the task (for example, "Low", "Medium", "High") and necessarily the responsible user.
