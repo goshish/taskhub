@@ -14,7 +14,13 @@ from django import forms
 from .models import Task, Project
 
 class AddTaskForm(forms.ModelForm):
-    project = forms.ModelChoiceField(queryset=Project.objects.all(), empty_label='', required=False, initial=None, widget=forms.Select(attrs={'class': 'form-select'}))
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user')  # Получаем текущего пользователя из аргументов
+        super().__init__(*args, **kwargs)
+        self.fields['project'].queryset = Project.objects.filter(
+            user=user)  # Фильтруем проекты по текущему пользователю
+
+    project = forms.ModelChoiceField(queryset=None, empty_label='', required=False, initial=None, widget=forms.Select(attrs={'class': 'form-select'}))
 
     class Meta:
         model = Task

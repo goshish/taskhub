@@ -52,6 +52,8 @@ class MyDay(ListView):
     template_name = 'webapp/my_day.html'
     context_object_name = 'tasks'
     def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.filter(user=self.request.user)
         return Task.objects.filter(my_day=1)
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -70,14 +72,14 @@ class ProjectView(CreateView, ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['menu'] = menu
-        context['title'] = 'Задачи'
+        context['title'] = 'Проекты'
         return context
+
     def get_queryset(self):
         queryset = super().get_queryset()
         # Фильтрация по текущему пользователю
         queryset = queryset.filter(user=self.request.user)
         return queryset
-
 
     def form_valid(self, form):
         form.instance.user = self.request.user  # Привязка задачи к текущему пользователю
@@ -118,22 +120,28 @@ class Content(ListView):
         return context
 
 
-class Add_task(CreateView, ListView):
+class Add_task(CreateView):
     paginate_by = 4
     model = Task
     form_class = AddTaskForm
     template_name = 'webapp/add_task.html'
-    context_object_name = 'tasks'
 
-    def get_context_data(self, *, object_list=None, **kwargs):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['menu'] = menu
         context['title'] = 'Задачи'
         return context
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+
 
 
 
