@@ -120,7 +120,7 @@ class Content(ListView):
         return context
 
 
-class Add_task(CreateView):
+class AddTask(CreateView):
     paginate_by = 4
     model = Task
     form_class = AddTaskForm

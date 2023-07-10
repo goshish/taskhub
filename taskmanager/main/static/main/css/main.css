@@ -4,6 +4,7 @@
     margin-top: 0;
 }
 
+
 header {
     position: fixed;
     height: 95px;
@@ -306,12 +307,16 @@ footer {
 .log_in_form{
     position: relative;
     top: 300px;
+    left: 850px;
 }
 
 .register-box {
-    position: relative;
-    top: 200px;
+    position: absolute;
+    width: 700px;
+    top: 370px;
+    left: 850px;
 }
+
 
 
 
