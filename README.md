@@ -1,15 +1,15 @@
-Project TaskHub
+* Project TaskHub
 
 Project TaskHub is a web application developed on the basis of the Django framework that helps to manage tasks and organize work in the game. You no longer have to randomly write down tasks in notebooks or send them by email. The Task Manager project provides a convenient and fast way to solve tasks, their statuses and deadlines.
 
-Installation
+** Installation
 
 Clone the project repository to your local machine.
 Start the development server by running the python manage.py runserver command.
 Open and use http://localhost:8000 to start using the Task Manager.
 
 
-Usage
+** Usage
 To display the page correctly, set the page scale to 75%
 Create an account or log in to your existing account.
 Create new furniture, specifying its name, description and due date.
